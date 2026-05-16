@@ -1,21 +1,330 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Thomas Bittner</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thomas Bittner, Computer Vision Engineer focused on feature tracking, pose estimation, and detection pipelines.">
+    <title>Thomas Bittner | Computer Vision Engineer</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f6f7f8;
+            --panel: #ffffff;
+            --text: #172026;
+            --muted: #5c6770;
+            --line: #d8dee3;
+            --accent: #0f766e;
+            --accent-dark: #0b5d56;
+            --code: #263238;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        .site-header {
+            border-bottom: 1px solid var(--line);
+            background: var(--panel);
+        }
+
+        .wrap {
+            width: min(1080px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 24px;
+            padding: 64px 0 52px;
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+            font-size: clamp(2.35rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+
+        .subtitle {
+            max-width: 780px;
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+        }
+
+        main {
+            padding: 44px 0 72px;
+        }
+
+        section + section {
+            margin-top: 54px;
+        }
+
+        h2 {
+            margin-bottom: 18px;
+            font-size: 1.65rem;
+            line-height: 1.2;
+            letter-spacing: 0;
+        }
+
+        .profile {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+            gap: 34px;
+            align-items: start;
+        }
+
+        .profile p {
+            max-width: 790px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .focus-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .focus-list li {
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 8px 11px;
+            background: var(--panel);
+            color: var(--code);
+            font-size: 0.95rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            display: grid;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--panel);
+        }
+
+        .project-thumb {
+            display: grid;
+            min-height: 210px;
+            place-items: center;
+            border-bottom: 1px solid var(--line);
+            background:
+                linear-gradient(135deg, rgba(15, 118, 110, 0.14), rgba(31, 41, 55, 0.08)),
+                repeating-linear-gradient(90deg, transparent 0 22px, rgba(23, 32, 38, 0.04) 22px 23px),
+                #eef2f3;
+            color: #3c4a52;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .project-thumb span {
+            max-width: 220px;
+            padding: 14px;
+        }
+
+        .project-body {
+            padding: 22px;
+        }
+
+        .project-body h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            line-height: 1.3;
+            letter-spacing: 0;
+        }
+
+        .project-body p {
+            margin-bottom: 18px;
+            color: var(--muted);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            min-height: 38px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 7px 12px;
+            font-weight: 700;
+        }
+
+        .site-footer {
+            border-top: 1px solid var(--line);
+            padding: 24px 0;
+            background: var(--panel);
+            color: var(--muted);
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-row p {
+            margin: 0;
+        }
+
+        @media (max-width: 760px) {
+            .wrap {
+                width: min(100% - 28px, 1080px);
+            }
+
+            .hero {
+                padding: 44px 0 38px;
+            }
+
+            main {
+                padding: 34px 0 54px;
+            }
+
+            .profile,
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-thumb {
+                min-height: 170px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Thomas Bittner</h1>
-    <p>Engineer / Programmer</p>
+    <header class="site-header">
+        <div class="wrap hero">
+            <div>
+                <p class="eyebrow">Computer Vision Engineer</p>
+                <h1>Thomas Bittner</h1>
+                <p class="subtitle">
+                    Feature tracking, pose estimation, and detection pipelines using mainly OpenCV and YOLO,
+                    with experience exploring deep learning workflows in PyTorch.
+                </p>
+            </div>
+        </div>
+    </header>
 
-    <h2>Projects</h2>
+    <main class="wrap">
+        <section class="profile" aria-labelledby="about-title">
+            <div>
+                <h2 id="about-title">About</h2>
+                <p>
+                    I recently transitioned into Computer Vision after 20 years in technical animation
+                    and tool development for feature film production, including work at DreamWorks
+                    Animation and Digital Domain. I also have experience in independent iPhone game
+                    development and interactive applications.
+                </p>
+                <p>
+                    My background is strongest where geometry, visual pipelines, and production-oriented
+                    engineering meet. I am focused on practical systems that turn visual data into
+                    reliable tracking, pose, and detection results.
+                </p>
+            </div>
 
-    <ul>
-        <li>
-            <a href="https://github.com/yourusername/project1">
-                Project 1
-            </a>
-        </li>
-    </ul>
+            <div aria-label="Core focus areas">
+                <h2>Focus</h2>
+                <ul class="focus-list">
+                    <li>OpenCV</li>
+                    <li>YOLO</li>
+                    <li>PyTorch</li>
+                    <li>Feature Tracking</li>
+                    <li>Pose Estimation</li>
+                    <li>Detection Pipelines</li>
+                    <li>Geometry</li>
+                    <li>Visual Pipelines</li>
+                </ul>
+            </div>
+        </section>
+
+        <section aria-labelledby="projects-title">
+            <h2 id="projects-title">Projects</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <div class="project-thumb" role="img" aria-label="Placeholder thumbnail for cross-camera vehicle tracking project">
+                        <span>Cross-Camera Vehicle Tracking Thumbnail</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>Cross-Camera Vehicle Tracking</h3>
+                        <p>
+                            A computer vision project focused on tracking vehicles across multiple camera
+                            views and maintaining identities through detection and matching workflows.
+                        </p>
+                        <a class="project-link" href="https://github.com/ThomasBittner1/Cross-Camera-Vehicle-Tracking">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-thumb" role="img" aria-label="Placeholder thumbnail for state-based pose tracking project">
+                        <span>State-Based Pose Tracking Thumbnail</span>
+                    </div>
+                    <div class="project-body">
+                        <h3>State-Based Pose Tracking</h3>
+                        <p>
+                            A pose-tracking project using state-based logic to interpret motion over time
+                            and support more stable frame-to-frame analysis.
+                        </p>
+                        <a class="project-link" href="https://github.com/ThomasBittner1/State-Based-Pose-Tracking">
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-row">
+            <p>&copy; 2026 Thomas Bittner</p>
+            <a href="https://github.com/ThomasBittner1">GitHub: ThomasBittner1</a>
+        </div>
+    </footer>
 </body>
 </html>
