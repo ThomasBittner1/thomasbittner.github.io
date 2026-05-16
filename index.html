@@ -148,23 +148,12 @@
             background: var(--panel);
         }
 
-        .project-thumb {
-            display: grid;
-            min-height: 210px;
-            place-items: center;
+        .project-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
             border-bottom: 1px solid var(--line);
-            background:
-                linear-gradient(135deg, rgba(15, 118, 110, 0.14), rgba(31, 41, 55, 0.08)),
-                repeating-linear-gradient(90deg, transparent 0 22px, rgba(23, 32, 38, 0.04) 22px 23px),
-                #eef2f3;
-            color: #3c4a52;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .project-thumb span {
-            max-width: 220px;
-            padding: 14px;
         }
 
         .project-body {
@@ -229,10 +218,6 @@
             .project-grid {
                 grid-template-columns: 1fr;
             }
-
-            .project-thumb {
-                min-height: 170px;
-            }
         }
     </style>
 </head>
@@ -286,9 +271,11 @@
             <h2 id="projects-title">Projects</h2>
             <div class="project-grid">
                 <article class="project-card">
-                    <div class="project-thumb" role="img" aria-label="Placeholder thumbnail for cross-camera vehicle tracking project">
-                        <span>Cross-Camera Vehicle Tracking Thumbnail</span>
-                    </div>
+                    <img
+                        class="project-image"
+                        src="cars_re-id_thumbnail.png"
+                        alt="Cross-camera vehicle tracking result with vehicle detections and identity matching"
+                    >
                     <div class="project-body">
                         <h3>Cross-Camera Vehicle Tracking</h3>
                         <p>
@@ -302,9 +289,11 @@
                 </article>
 
                 <article class="project-card">
-                    <div class="project-thumb" role="img" aria-label="Placeholder thumbnail for state-based pose tracking project">
-                        <span>State-Based Pose Tracking Thumbnail</span>
-                    </div>
+                    <img
+                        class="project-image"
+                        src="statebased_tracking_thumbnail.png"
+                        alt="State-based pose tracking result with pose estimation overlays"
+                    >
                     <div class="project-body">
                         <h3>State-Based Pose Tracking</h3>
                         <p>
