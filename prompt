@@ -1,0 +1,29 @@
+for the Kangaroo Builder part, instead of go to github, it should say go to website, and it should link to "www.kangaroobuilder.com"
+
+Then add a bit more information, from this (but shorten massively!!)
+Kangaroo Builder is a professional rigging framework for animation, VFX, and game production pipelines. While not strictly a computer vision project, it is closely related through its focus on geometry processing, spatial transformations, mesh analysis, deformation transfer, and technical pipeline engineering.
+
+Developed and maintained independently by me, the system was designed to address complex production requirements in facial rigging, body rigging, procedural deformation workflows, and advanced geometry manipulation.
+
+Kangaroo Builder has been commercially licensed and used in feature film productions, television projects, and game development environments.
+
+The framework includes a broad range of production-oriented tools and techniques, including:
+
+Facial and body rigging systems
+Topology-independent mesh blending and deformation transfer (https://kangaroobuilder.com/landmarkWarp/)
+Surface-aware deformers that slide across polygonal meshes using 3D pathfinding algorithms
+Audio-driven lip-sync systems that convert speech into facial animation
+Mesh-based weight transfer and procedural skinning tools (https://kangaroobuilder.com/tools/toolsPlaneCutter/)
+Procedural rigging and geometry processing utilities for production pipelines
+The entire architecture, implementation, maintenance, and long-term feature development of the framework have been handled independently by me since 2019.
+
+
+
+Also, add some direct links:
+- Sliding deformer, that for each vertex finds a path on the mesh to move along: https://kangaroobuilder.com/body/slidingDeformer/
+- Tool for calculating lips movement based on Audio file: https://kangaroobuilder.com/face/speechmachine/
+- Tool that warps 2 meshes with different topologies: https://kangaroobuilder.com/landmarkWarp/
+- Geometry tools that rely on C++ plugins for analyzing topology, such as find closest points between 2 meshes or find mirror vertices through a path search: https://kangaroobuilder.com/tools/toolsGeometry/
+
+
+One general note - this is a computer vision portfolio. The kangaroo-builder part is not directly computer vision, but it has many overlaps.
